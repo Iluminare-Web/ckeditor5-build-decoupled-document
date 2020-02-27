@@ -38,6 +38,8 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 
+import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
+
 export default class DecoupledEditor extends DecoupledEditorBase {}
 
 // Plugins to include in the build.
@@ -72,7 +74,8 @@ DecoupledEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	TextTransformation
+	TextTransformation,
+	PageBreak
 ];
 
 // Editor configuration.
@@ -104,17 +107,14 @@ DecoupledEditor.defaultConfig = {
 			'imageUpload',
 			'insertTable',
 			'mediaEmbed',
+			'pagebreak',
 			'|',
 			'undo',
 			'redo'
 		]
 	},
 	image: {
-		styles: [
-			'full',
-			'alignLeft',
-			'alignRight'
-		],
+		styles: [ 'full', 'alignLeft', 'alignRight' ],
 		toolbar: [
 			'imageStyle:alignLeft',
 			'imageStyle:full',
@@ -124,11 +124,7 @@ DecoupledEditor.defaultConfig = {
 		]
 	},
 	table: {
-		contentToolbar: [
-			'tableColumn',
-			'tableRow',
-			'mergeTableCells'
-		]
+		contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells' ]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
