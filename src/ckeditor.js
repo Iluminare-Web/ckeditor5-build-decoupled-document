@@ -42,7 +42,7 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 
 import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
 
-export class DecoupledEditor extends DecoupledEditorBase {}
+class DecoupledEditor extends DecoupledEditorBase {}
 
 // Plugins to include in the build.
 DecoupledEditor.builtinPlugins = [
@@ -137,10 +137,10 @@ DecoupledEditor.defaultConfig = {
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
+	language: 'pt-br'
 };
 
-export class ClassicEditor extends ClassicEditorBase {}
+class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
@@ -208,5 +208,10 @@ ClassicEditor.defaultConfig = {
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
+	language: 'pt-br'
+};
+
+export default {
+	DecoupledEditor,
+	ClassicEditor
 };
