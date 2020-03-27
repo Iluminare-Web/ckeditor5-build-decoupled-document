@@ -6,6 +6,8 @@
 // The editor creator to use.
 import DecoupledEditorBase from '@ckeditor/ckeditor5-editor-decoupled/src/decouplededitor';
 
+import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
+
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize';
@@ -40,7 +42,7 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 
 import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
 
-export default class DecoupledEditor extends DecoupledEditorBase {}
+export class DecoupledEditor extends DecoupledEditorBase {}
 
 // Plugins to include in the build.
 DecoupledEditor.builtinPlugins = [
@@ -114,7 +116,11 @@ DecoupledEditor.defaultConfig = {
 		]
 	},
 	image: {
-		styles: [ 'full', 'alignLeft', 'alignRight' ],
+		styles: [
+			'full',
+			'alignLeft',
+			'alignRight'
+		],
 		toolbar: [
 			'imageStyle:alignLeft',
 			'imageStyle:full',
@@ -124,7 +130,82 @@ DecoupledEditor.defaultConfig = {
 		]
 	},
 	table: {
-		contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells' ]
+		contentToolbar: [
+			'tableColumn',
+			'tableRow',
+			'mergeTableCells'
+		]
+	},
+	// This value must be kept in sync with the language defined in webpack.config.js.
+	language: 'en'
+};
+
+export class ClassicEditor extends ClassicEditorBase {}
+
+// Plugins to include in the build.
+ClassicEditor.builtinPlugins = [
+	Essentials,
+	UploadAdapter,
+	Autoformat,
+	Bold,
+	Italic,
+	BlockQuote,
+	CKFinder,
+	EasyImage,
+	Heading,
+	Image,
+	ImageCaption,
+	ImageStyle,
+	ImageToolbar,
+	ImageUpload,
+	Indent,
+	Link,
+	List,
+	MediaEmbed,
+	Paragraph,
+	PasteFromOffice,
+	Table,
+	TableToolbar,
+	TextTransformation
+];
+
+// Editor configuration.
+ClassicEditor.defaultConfig = {
+	toolbar: {
+		items: [
+			'heading',
+			'|',
+			'bold',
+			'italic',
+			'link',
+			'bulletedList',
+			'numberedList',
+			'|',
+			'indent',
+			'outdent',
+			'|',
+			'imageUpload',
+			'blockQuote',
+			'insertTable',
+			'mediaEmbed',
+			'undo',
+			'redo'
+		]
+	},
+	image: {
+		toolbar: [
+			'imageStyle:full',
+			'imageStyle:side',
+			'|',
+			'imageTextAlternative'
+		]
+	},
+	table: {
+		contentToolbar: [
+			'tableColumn',
+			'tableRow',
+			'mergeTableCells'
+		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
