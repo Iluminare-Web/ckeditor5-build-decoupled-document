@@ -21,7 +21,8 @@ module.exports = {
 
 	output: {
 		// The name under which the editor will be exported.
-		library: 'DecoupledEditor',
+		// library: 'DecoupledEditor',
+		library: 'CKEDITOR',
 
 		path: path.resolve( __dirname, 'build' ),
 		filename: 'ckeditor.js',
